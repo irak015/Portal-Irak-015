@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-3">
             <div className="w-12 h-12 flex items-center justify-center shrink-0">
               <img
-                src="https://drive.google.com/thumbnail?id=1Ou1pplE9AB5yqruzqDlpRIhMzBtyKQdw&sz=w1000"
+                src="https://drive.google.com/thumbnail?id=1Ou1pplE9AB5yqruzqDlpRIhMzBtyKQdw&sz=s2000"
                 alt="Logo"
                 className="w-full h-full object-contain"
               />

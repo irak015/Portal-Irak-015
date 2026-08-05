@@ -3,37 +3,37 @@ export default function Activities() {
     {
       title: 'Latihan Upacara',
       date: '29 Juli 2026',
-      image: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100'
     },
     {
       title: 'Sosialisasi kenakalan remaja',
       date: '29 Juli 2026',
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100'
     },
     {
       title: 'Latihan Upacara',
       date: '29 Juli 2026',
-      image: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100'
     },
     {
       title: 'Rapat perdana',
       date: '20 Juli 2026',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100'
     },
     {
       title: 'Pembentukan pengurus',
       date: '15 Juli 2026',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100'
     },
     {
       title: 'Kegiatan Sosial',
       date: '10 Juli 2026',
-      image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100'
     }
   ];
 
   return (
-    <div className="bg-[#fcfbf9] min-h-screen py-16">
+    <div className="bg-[#fcfbf9] min-h-screen py-[24px]">
       <div className="max-w-7xl mx-auto px-4">
          <div className="text-center mb-16">
             <div className="inline-block relative">

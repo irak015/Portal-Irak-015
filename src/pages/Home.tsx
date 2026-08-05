@@ -13,10 +13,10 @@ const HomeGallerySlider = () => {
   };
 
   const images = [
-    { src: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', title: 'Latihan Upacara' },
-    { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', title: 'Sosialisasi kenakalan remaja' },
-    { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', title: 'Rapat perdana' },
-    { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80', title: 'Pembentukan pengurus' },
+    { src: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Latihan Upacara' },
+    { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Sosialisasi kenakalan remaja' },
+    { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Rapat perdana' },
+    { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Pembentukan pengurus' },
   ];
 
   return (
@@ -57,33 +57,33 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#00b4db] to-[#0083b0] text-white py-16 md:py-24 relative overflow-hidden h-[600px]">
-        <div className="absolute inset-0 bg-[#053b93]/40 h-[600px]"></div> {/* Darken overlay to match screenshot */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="md:w-1/2">
-              <span className="inline-block bg-[#053b93] text-white text-sm px-4 py-1.5 rounded-md mb-6 shadow-sm">
+      <section className="bg-gradient-to-br from-[#00b4db] to-[#0083b0] text-white relative overflow-hidden py-[24px]">
+        <div className="absolute inset-0 bg-[#053b93]/40"></div> {/* Darken overlay to match screenshot */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+            <div className="lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+              <span className="inline-block bg-[#053b93] text-white text-center text-xs lg:text-sm px-4 py-1.5 rounded-md mb-4 shadow-sm w-[140px] lg:w-[160px]">
                 Selamat Datang
               </span>
-              <h1 className="text-5xl md:text-6xl font-black mb-2 tracking-tight text-[#0a1930] drop-shadow-sm">IRAK 015</h1>
-              <h2 className="font-display font-bold text-4xl md:text-5xl text-white drop-shadow-md mb-6 tracking-wide" style={{ WebkitTextStroke: '1px #053b93' }}>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-1 lg:mb-2 tracking-tight text-[#0a1930] drop-shadow-sm">IRAK 015</h1>
+              <h2 className="font-display font-bold text-[32px] leading-[40px] text-white drop-shadow-md mb-4 lg:mb-6 tracking-wide" style={{ WebkitTextStroke: '1px #053b93' }}>
                 Ikatan Remaja Aktif 015
               </h2>
-              <p className="text-gray-100 text-base mb-8 max-w-xl font-light">
+              <p className="text-gray-100 text-sm lg:text-base mb-6 lg:mb-8 max-w-xl font-light line-clamp-3 lg:line-clamp-none">
                 Wadah pengembangan generasi muda RW. 015 Pesona Gading Cibitung, Desa Wanajaya Kecamatan Cibitung, Kabupaten Bekasi, yang tumbuh dan berkembang atas dasar kesadaran dan tanggung jawab sosial dari, oleh, dan untuk masyarakat.
               </p>
               <Link to="/tentang-kami" className="inline-flex items-center justify-center bg-[#053b93] hover:bg-blue-800 text-white font-medium rounded-md transition-colors shadow-md text-[12px] h-[36px] w-[180px]">
                 Selengkapnya <span className="ml-2">&gt;</span>
               </Link>
             </div>
-            <div className="md:w-1/2 flex justify-center md:justify-end">
-              <div className="relative">
+            <div className="lg:w-1/2 flex justify-center lg:justify-end w-full">
+              <div className="relative w-full max-w-[280px] lg:max-w-md">
                 {/* Decorative background shape */}
                 <div className="absolute -inset-2 bg-white rounded-3xl opacity-20 blur-sm"></div>
                 <img 
-                  src="https://drive.google.com/thumbnail?id=1n-QVXh44JrSbammiNS4qg9TkW1Okp4wo&sz=w1000" 
+                  src="https://drive.google.com/thumbnail?id=1n-QVXh44JrSbammiNS4qg9TkW1Okp4wo&sz=s2000" 
                   alt="Remaja bersatu" 
-                  className="relative w-full max-w-md rounded-3xl border-4 border-white shadow-2xl object-cover h-[400px]"
+                  className="relative w-full aspect-[4/3] rounded-3xl border-4 border-white shadow-2xl object-cover"
                 />
               </div>
             </div>
@@ -108,11 +108,11 @@ export default function Home() {
       </section>
 
       {/* Kegiatan Section */}
-      <section className="py-20 bg-[#f3ebfa]">
+      <section className="py-[24px] bg-[#f3ebfa]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 inline-block w-full">
              <div className="inline-block relative">
-                <h2 className="font-display text-4xl md:text-5xl text-[#053b93]">Kegiatan</h2>
+                <h2 className="font-display text-[32px] leading-[40px] text-[#053b93]">Kegiatan</h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
              </div>
           </div>
@@ -121,7 +121,7 @@ export default function Home() {
             {/* Card 1 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-64 w-full p-4 pb-0">
-                <img src="https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
+                <img src="https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-sm mb-2 text-gray-900">Latihan Upacara</h3>
@@ -132,7 +132,7 @@ export default function Home() {
             {/* Card 2 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                <div className="h-64 w-full p-4 pb-0">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sosialisasi kenakalan remaja" className="w-full h-full object-cover rounded-xl" />
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100" alt="Sosialisasi kenakalan remaja" className="w-full h-full object-cover rounded-xl" />
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-sm mb-2 text-gray-900">Sosialisasi kenakalan remaja</h3>
@@ -143,7 +143,7 @@ export default function Home() {
             {/* Card 3 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                <div className="h-64 w-full p-4 pb-0">
-                <img src="https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
+                <img src="https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
               </div>
               <div className="p-6">
                 <h3 className="font-bold text-sm mb-2 text-gray-900">Latihan Upacara</h3>
@@ -155,11 +155,11 @@ export default function Home() {
       </section>
 
       {/* Galeri Section */}
-      <section className="py-20 bg-[#fcfbf9]">
+      <section className="py-[24px] bg-[#fcfbf9]">
         <div className="max-w-7xl mx-auto px-4">
            <div className="text-center mb-12 inline-block w-full">
              <div className="inline-block relative">
-                <h2 className="font-display text-4xl md:text-5xl text-[#053b93]">Galeri</h2>
+                <h2 className="font-display text-[32px] leading-[40px] text-[#053b93]">Galeri</h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
              </div>
           </div>
@@ -167,7 +167,7 @@ export default function Home() {
           <HomeGallerySlider />
 
           <div className="text-right">
-             <Link to="/galeri" className="text-[#053b93] hover:text-blue-800 font-medium inline-flex items-center transition-colors">
+             <Link to="/galeri" className="text-[#053b93] hover:text-blue-800 font-medium inline-flex items-center transition-colors text-[12px] leading-[16px]">
                Selengkapnya <span className="ml-1 text-lg">&rsaquo;</span>
              </Link>
           </div>
