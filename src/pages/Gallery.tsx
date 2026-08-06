@@ -1,6 +1,8 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import React, { useRef, useState, useEffect } from 'react';
 
+import { Lightbox } from '../components/Lightbox';
+
 const EventSlider = ({ event, onImageClick }: { event: any, onImageClick: (img: string) => void }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -57,30 +59,50 @@ export default function Gallery() {
       title: 'Latihan Upacara',
       date: '29 Juli 2026',
       images: [
-        'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
+        'https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1DpvOMCE54zEb2mgQvdDMXrnVFVgZNerp&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1wvjtmNqpEZZV7KTrRY6HD9_FG-2WeTs5&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1FWMfzp12Z9c2Jnz3KRdZIqSCCMuSf5VN&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1Bq_2sRSMA3gW3vBeCOhQhcpohpwUQKKU&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1kn0gHmYLfe9qEwsn1FJ5r_XyD6vfBU8g&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1B25AGQ_G1OoXtJM59XSyYOpuhltWAbW2&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1ZJFDCdzkdUl02GLWWPS-Ecikuph0tPtj&sz=s2000'
       ]
     },
     {
-      title: 'Rapat Perdana',
-      date: '29 Juli 2026',
+      title: 'Sosialisasi Kenakalan Remaja',
+      date: '21 Juli 2026',
       images: [
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
+        'https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1A4lz300vYv0iDRqXat905a2dKYjTmOVo&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1yLi-cJT2gZ6r2g5SI7u6_S84vebih6Ot&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1A9oLu3yTF27cLTMtJL4Pfcto6oQrXStP&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1tBKsexqveUssVwsK2qDNS_CyqojwrvjS&sz=s2000',
+        'https://drive.google.com/thumbnail?id=16p46y449U4VQkZuSdhcCMkC-17JiN8Ua&sz=s2000',
+        'https://drive.google.com/thumbnail?id=19Pznq69ECeDbC9Kx8BwfLkKmF5TsTX-g&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1N5rnZ3Z54g4qml_UTAxVHBzuQzJ2185X&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1mDJCVmdTcyn0CyYlI1wnNVejZYztf6AI&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1mXxAobsyCFwSy10yC1Aycb0Zr6VyUuFK&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1YP7yvI4eK1tcYCnAR2iuCp8weCL7VMjL&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1K6IJJCWP_c4yJwW3bhOzfL01dkXLPcSG&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1SshHBKzfj78RKWql-V55sCretN5yJ6ip&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1sN4UZ6p2rc3iLEbaXh7VIE7zZRzIjgz1&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1kZuGhyE9BYrMcjfiZDUlBSjrpn6jUOQ1&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1XXHKXovA7G6883fR84Q0bYLmiJOdl0yk&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1-Qblv27-INju9TqZ-nl0Wfkv1BpOh1xu&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1gzkoZNWjCzLy7ePiJRktyhEhGIdnCy8c&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1Qz32kX9-7x0qQZ1Bka_f1p44LwiDUqID&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1-_nh2bkMDmiqyuP82U7Tj6T2t4IyCQxI&sz=s2000'
       ]
     },
     {
       title: 'Pembentukan Struktur Organisasi',
-      date: '29 Juli 2026',
+      date: '13 Juni 2026',
       images: [
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
-        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100',
+        'https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1n_ADXkp_C_YaTJVtVy65_V8gnQaL3hST&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1zntbWwvmsegCjFM-Qe9jncPjf2dijgbb&sz=s2000',
+        'https://drive.google.com/thumbnail?id=1xkjyeM6PgFHQ0Ll9ig--X19ihCodmMtp&sz=s2000',
       ]
     },
     {
@@ -117,26 +139,7 @@ export default function Gallery() {
          </div>
       </div>
 
-      {/* Lightbox Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <button 
-            className="absolute top-4 right-4 text-white hover:text-gray-300 z-50 p-2 cursor-pointer"
-            onClick={() => setSelectedImage(null)}
-          >
-            <X size={32} />
-          </button>
-          <img 
-            src={selectedImage} 
-            alt="Full size view" 
-            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()} 
-          />
-        </div>
-      )}
+      <Lightbox imageSrc={selectedImage} onClose={() => setSelectedImage(null)} />
     </div>
   );
 }

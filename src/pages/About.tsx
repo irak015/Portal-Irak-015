@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Lightbox } from '../components/Lightbox';
 
 export default function About() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const pengurus = [
     { name: 'Bayu', role: 'Ketua', colSpan: 'col-span-4 flex justify-center' },
     { name: 'Davin', role: 'Sekretariat', colSpan: 'col-span-1' },
@@ -86,23 +89,23 @@ export default function About() {
                
                {/* Ketua Row */}
                <div className="flex justify-center mb-6">
-                 <MemberCard name="Bayu" role="Ketua" imgSrc="https://drive.google.com/thumbnail?id=14l-EO95AJNlgTa47uUp53EPDSanMoa_W&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Bayu" role="Ketua" imgSrc="https://drive.google.com/thumbnail?id=14l-EO95AJNlgTa47uUp53EPDSanMoa_W&sz=s2000" />
                </div>
 
                {/* Sekretariat Row */}
                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6">
-                 <MemberCard name="Davin" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1OSHDZA96tV4MArfihaJv3U61NG3QFsKL&sz=s2000" />
-                 <MemberCard name="Arman" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1Wb-QlwP4TvQgqS5kZ0rHKAxwLo61x_rs&sz=s2000" />
-                 <MemberCard name="Rifa" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000" />
-                 <MemberCard name="Brina" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1FeBvdFjkYV2i8n7JbxNh_K2oQng0eIBB&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Davin" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1OSHDZA96tV4MArfihaJv3U61NG3QFsKL&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Arman" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1Wb-QlwP4TvQgqS5kZ0rHKAxwLo61x_rs&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Rifa" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Brina" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1FeBvdFjkYV2i8n7JbxNh_K2oQng0eIBB&sz=s2000" />
                </div>
 
                {/* Bendahara & Sie Row */}
                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                 <MemberCard name="Echa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1sMwOJAacW6_NiluCO-Xs2_M6Midp-FDj&sz=s2000" />
-                 <MemberCard name="Ghesa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1bB_brdah_xFYhntlUWbyfOtT179O2I1H&sz=s2000" />
-                 <MemberCard name="Farih" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=100Q61DMxCADZdOKV8hSxXy6UTl4IWIN6&sz=s2000" />
-                 <MemberCard name="Zaidan" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=1y0aBoTmDaRD07YSdVU-KjQt04W6BCe1h&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Echa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1sMwOJAacW6_NiluCO-Xs2_M6Midp-FDj&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Ghesa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1bB_brdah_xFYhntlUWbyfOtT179O2I1H&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Farih" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=100Q61DMxCADZdOKV8hSxXy6UTl4IWIN6&sz=s2000" />
+                 <MemberCard onClick={setSelectedImage} name="Zaidan" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=1y0aBoTmDaRD07YSdVU-KjQt04W6BCe1h&sz=s2000" />
                </div>
             </div>
          </div>
@@ -119,12 +122,13 @@ export default function About() {
             <div className="bg-[#f3ebfa] rounded-[3rem] p-8 md:p-12 shadow-inner-sm">
                <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
                   {anggota.map((member, index) => (
-                    <MemberCard key={index} name={member.name} role="" imgSrc={member.imgSrc} isAnggota={true} />
+                    <MemberCard onClick={setSelectedImage} key={index} name={member.name} role="" imgSrc={member.imgSrc} isAnggota={true} />
                   ))}
                </div>
             </div>
          </div>
       </section>
+      <Lightbox imageSrc={selectedImage} onClose={() => setSelectedImage(null)} />
     </div>
   );
 }
@@ -134,12 +138,16 @@ interface MemberCardProps {
   role: string;
   imgSrc?: string;
   isAnggota?: boolean;
+  onClick?: (imgSrc: string) => void;
 }
 
-const MemberCard: React.FC<MemberCardProps> = ({ name, role, imgSrc = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=300&q=80q=100", isAnggota = false }) => {
+const MemberCard: React.FC<MemberCardProps> = ({ name, role, imgSrc = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=300&q=80q=100", isAnggota = false, onClick }) => {
   return (
     <div className="flex flex-col items-center">
-       <div className="relative w-full max-w-[140px] aspect-[3/4] bg-gradient-to-br from-blue-300 to-cyan-200 rounded-2xl overflow-hidden shadow-md p-1.5">
+       <div 
+         className="relative w-full max-w-[140px] aspect-[3/4] bg-gradient-to-br from-blue-300 to-cyan-200 rounded-2xl overflow-hidden shadow-md p-1.5 cursor-pointer"
+         onClick={() => onClick && onClick(imgSrc)}
+       >
           {/* Inner image container */}
           <div className="w-full h-[75%] rounded-t-xl overflow-hidden bg-white">
              <img src={imgSrc} alt={name} className="w-full h-full object-cover" />

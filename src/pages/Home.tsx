@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { Lightbox } from '../components/Lightbox';
 
-const HomeGallerySlider = () => {
+const HomeGallerySlider = ({ onImageClick }: { onImageClick: (src: string) => void }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -13,10 +14,10 @@ const HomeGallerySlider = () => {
   };
 
   const images = [
-    { src: 'https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Latihan Upacara' },
-    { src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Sosialisasi kenakalan remaja' },
-    { src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Rapat perdana' },
-    { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=400&q=80q=100', title: 'Pembentukan pengurus' },
+    { src: 'https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000', title: 'Latihan Upacara' },
+    { src: 'https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000', title: 'Sosialisasi kenakalan remaja' },
+    { src: 'https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000', title: 'Pembentukan pengurus' },
+    { src: 'https://drive.google.com/thumbnail?id=1UhNIJe8gB-wWeUB_5jBDjqsqGiSm0xvw&sz=s2000', title: 'Rapat Sie pemuda & Olahraga' }
   ];
 
   return (
@@ -28,9 +29,12 @@ const HomeGallerySlider = () => {
       >
         {images.map((img, idx) => (
           <div key={idx} className="snap-start shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)]">
-             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-3 pb-0 text-center h-full">
+             <div 
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-3 pb-0 text-center h-full cursor-pointer"
+                onClick={() => onImageClick(img.src)}
+             >
                 <img src={img.src} alt={img.title} className="w-full h-48 object-cover rounded-xl mb-3" />
-                <h3 className="font-bold text-sm text-gray-900 pb-3">{img.title}</h3>
+                <h3 className="text-left font-bold text-[12px] text-gray-900 pb-3">{img.title}</h3>
              </div>
           </div>
         ))}
@@ -54,6 +58,8 @@ const HomeGallerySlider = () => {
 };
 
 export default function Home() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div>
       {/* Hero Section */}
@@ -117,37 +123,60 @@ export default function Home() {
              </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Card 1 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              <div className="h-64 w-full p-4 pb-0">
-                <img src="https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
+              <div 
+                className="h-48 w-full p-4 pb-0 cursor-pointer"
+                onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000")}
+              >
+                <img src="https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
               </div>
-              <div className="p-6">
-                <h3 className="font-bold text-sm mb-2 text-gray-900">Latihan Upacara</h3>
+              <div className="p-5">
+                <h3 className="font-bold text-sm mb-1 text-gray-900">Latihan Upacara</h3>
                 <p className="text-xs text-gray-500">29 Juli 2026</p>
               </div>
             </div>
             
             {/* Card 2 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-               <div className="h-64 w-full p-4 pb-0">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100" alt="Sosialisasi kenakalan remaja" className="w-full h-full object-cover rounded-xl" />
+               <div 
+                 className="h-48 w-full p-4 pb-0 cursor-pointer"
+                 onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000")}
+               >
+                <img src="https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000" alt="Sosialisasi kenakalan remaja" className="w-full h-full object-cover rounded-xl" />
               </div>
-              <div className="p-6">
-                <h3 className="font-bold text-sm mb-2 text-gray-900">Sosialisasi kenakalan remaja</h3>
-                <p className="text-xs text-gray-500">29 Juli 2026</p>
+              <div className="p-5">
+                <h3 className="font-bold text-sm mb-1 text-gray-900">Sosialisasi kenakalan remaja</h3>
+                <p className="text-xs text-gray-500">21 Juli 2026</p>
               </div>
             </div>
 
             {/* Card 3 */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-               <div className="h-64 w-full p-4 pb-0">
-                <img src="https://images.unsplash.com/photo-1576669947938-164b4c735d64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600w=600&q=80q=100" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
+               <div 
+                 className="h-48 w-full p-4 pb-0 cursor-pointer"
+                 onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000")}
+               >
+                <img src="https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000" alt="Pembentukan pengurus" className="w-full h-full object-cover rounded-xl" />
               </div>
-              <div className="p-6">
-                <h3 className="font-bold text-sm mb-2 text-gray-900">Latihan Upacara</h3>
-                <p className="text-xs text-gray-500">29 Juli 2026</p>
+              <div className="p-5">
+                <h3 className="font-bold text-sm mb-1 text-gray-900 line-clamp-1">Pembentukan Struktur Organisasi</h3>
+                <p className="text-xs text-gray-500">13 Juni 2026</p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+               <div 
+                 className="h-48 w-full p-4 pb-0 cursor-pointer"
+                 onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1UhNIJe8gB-wWeUB_5jBDjqsqGiSm0xvw&sz=s2000")}
+               >
+                <img src="https://drive.google.com/thumbnail?id=1UhNIJe8gB-wWeUB_5jBDjqsqGiSm0xvw&sz=s2000" alt="Rapat Sie Pemuda dan Olahraga" className="w-full h-full object-cover rounded-xl" />
+              </div>
+              <div className="p-5">
+                <h3 className="font-bold text-sm mb-1 text-gray-900 line-clamp-1">Rapat Sie Pemuda & Olahraga</h3>
+                <p className="text-xs text-gray-500">22 Mei 2026</p>
               </div>
             </div>
           </div>
@@ -164,7 +193,7 @@ export default function Home() {
              </div>
           </div>
 
-          <HomeGallerySlider />
+          <HomeGallerySlider onImageClick={setSelectedImage} />
 
           <div className="text-right">
              <Link to="/galeri" className="text-[#053b93] hover:text-blue-800 font-medium inline-flex items-center transition-colors text-[12px] leading-[16px]">
@@ -173,6 +202,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Lightbox imageSrc={selectedImage} onClose={() => setSelectedImage(null)} />
     </div>
   );
 }
