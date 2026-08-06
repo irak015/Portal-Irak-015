@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { Lightbox } from '../components/Lightbox';
+import { X } from 'lucide-react';
+
+interface MemberData {
+  noAnggota: string;
+  nama: string;
+  tglLahir: string;
+  alamat: string;
+  posisi: string;
+  imgSrc: string;
+}
 
 export default function About() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedMember, setSelectedMember] = useState<MemberData | null>(null);
 
   const pengurus = [
     { name: 'Bayu', role: 'Ketua', colSpan: 'col-span-4 flex justify-center' },
@@ -96,7 +107,14 @@ export default function About() {
                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6">
                  <MemberCard onClick={setSelectedImage} name="Davin" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1OSHDZA96tV4MArfihaJv3U61NG3QFsKL&sz=s2000" />
                  <MemberCard onClick={setSelectedImage} name="Arman" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1Wb-QlwP4TvQgqS5kZ0rHKAxwLo61x_rs&sz=s2000" />
-                 <MemberCard onClick={setSelectedImage} name="Rifa" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0040626180910',
+                    nama: 'Rifa Azkiya',
+                    tglLahir: '18 Sep 2010',
+                    alamat: 'D1/23',
+                    posisi: 'Sekretariat',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000'
+                 })} name="Rifa" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000" />
                  <MemberCard onClick={setSelectedImage} name="Brina" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1FeBvdFjkYV2i8n7JbxNh_K2oQng0eIBB&sz=s2000" />
                </div>
 
@@ -129,6 +147,44 @@ export default function About() {
          </div>
       </section>
       <Lightbox imageSrc={selectedImage} onClose={() => setSelectedImage(null)} />
+      
+      {/* Member Detail Modal */}
+      {selectedMember && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedMember(null)}>
+          <div className="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-sm w-full relative" onClick={e => e.stopPropagation()}>
+            <button onClick={() => setSelectedMember(null)} className="absolute top-4 right-4 bg-white rounded-full p-1.5 shadow-md text-gray-700 hover:text-red-500 z-10 transition-colors">
+               <X size={20} />
+            </button>
+            <div className="bg-gradient-to-br from-blue-300 to-cyan-200 h-32 relative"></div>
+            <div className="px-6 pb-8 -mt-16 flex flex-col items-center relative z-0">
+               <div className="w-32 h-32 rounded-2xl overflow-hidden border-4 border-white shadow-lg mb-4 bg-white">
+                  <img src={selectedMember.imgSrc} alt={selectedMember.nama} className="w-full h-full object-cover" />
+               </div>
+               <h3 className="font-display text-2xl text-[#053b93] font-bold text-center mb-1">{selectedMember.nama}</h3>
+               <span className="inline-block bg-[#50d1d9] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6">
+                 {selectedMember.posisi}
+               </span>
+               
+               <div className="w-full bg-gray-50 rounded-2xl p-5 space-y-3 shadow-inner-sm text-left">
+                  <div>
+                     <p className="text-xs text-gray-500 font-semibold uppercase">No Anggota</p>
+                     <p className="text-gray-900 font-medium">{selectedMember.noAnggota}</p>
+                  </div>
+                  <div className="h-px bg-gray-200 w-full"></div>
+                  <div>
+                     <p className="text-xs text-gray-500 font-semibold uppercase">Tgl Lahir</p>
+                     <p className="text-gray-900 font-medium">{selectedMember.tglLahir}</p>
+                  </div>
+                  <div className="h-px bg-gray-200 w-full"></div>
+                  <div>
+                     <p className="text-xs text-gray-500 font-semibold uppercase">Alamat</p>
+                     <p className="text-gray-900 font-medium">{selectedMember.alamat}</p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
