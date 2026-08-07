@@ -31,7 +31,7 @@ const HomeGallerySlider = ({ onImageClick }: { onImageClick: (src: string) => vo
         {images.map((img, idx) => (
           <div key={idx} className="snap-start shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)]">
              <div 
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-3 pb-0 text-center h-full cursor-pointer"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent p-3 pb-0 text-center h-full cursor-pointer"
                 onClick={() => onImageClick(img.src)}
              >
                 <img src={img.src} alt={img.title} className="w-full h-48 object-cover rounded-xl mb-3" />
@@ -79,7 +79,7 @@ export default function Home() {
               <p className="text-gray-100 text-sm lg:text-base mb-6 lg:mb-8 max-w-xl font-light line-clamp-3 lg:line-clamp-none">
                 Wadah pengembangan generasi muda RW. 015 Pesona Gading Cibitung, Desa Wanajaya Kecamatan Cibitung, Kabupaten Bekasi, yang tumbuh dan berkembang atas dasar kesadaran dan tanggung jawab sosial dari, oleh, dan untuk masyarakat.
               </p>
-              <Link to="/tentang-kami" className="inline-flex items-center justify-center bg-[#053b93] hover:bg-blue-800 text-white font-medium rounded-md transition-colors shadow-md text-[12px] h-[36px] w-[180px]">
+              <Link to="/tentang-kami" className="inline-flex items-center justify-center bg-[#053b93] hover:bg-blue-800 text-white font-medium rounded-md transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg text-[12px] h-[36px] w-[180px]">
                 Selengkapnya <span className="ml-2">&gt;</span>
               </Link>
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
             <div className="lg:col-span-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                 {/* Card 1 */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                   <div 
                     className="h-48 w-full p-4 pb-0 cursor-pointer"
                     onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000")}
@@ -142,7 +142,7 @@ export default function Home() {
                 </div>
                 
                 {/* Card 2 */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                    <div 
                      className="h-48 w-full p-4 pb-0 cursor-pointer"
                      onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000")}
@@ -156,7 +156,7 @@ export default function Home() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                    <div 
                      className="h-48 w-full p-4 pb-0 cursor-pointer"
                      onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000")}
@@ -170,7 +170,7 @@ export default function Home() {
                 </div>
 
                 {/* Card 4 */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                    <div 
                      className="h-48 w-full p-4 pb-0 cursor-pointer"
                      onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1UhNIJe8gB-wWeUB_5jBDjqsqGiSm0xvw&sz=s2000")}
@@ -194,7 +194,7 @@ export default function Home() {
                  </h3>
                  <div className="space-y-3">
                    {mockEvents.slice(0, 3).map(event => (
-                     <div key={`upcoming-${event.id}`} className="flex items-start gap-4 p-3 hover:bg-gray-50 rounded-xl transition-colors">
+                     <div key={`upcoming-${event.id}`} className="flex items-start gap-4 p-3 hover:bg-blue-50/50 hover:shadow-sm rounded-xl transition-all duration-300 transform hover:-translate-y-0.5">
                         <div className="flex flex-col items-center justify-center bg-blue-50 text-[#053b93] rounded-lg min-w-[50px] p-2">
                           <span className="text-xs font-bold uppercase">{MONTHS[parseInt(event.date.split('-')[1]) - 1].slice(0, 3)}</span>
                           <span className="text-xl font-black">{event.date.split('-')[2]}</span>
@@ -230,7 +230,7 @@ export default function Home() {
           <HomeGallerySlider onImageClick={setSelectedImage} />
 
           <div className="text-right">
-             <Link to="/galeri" className="text-[#053b93] hover:text-blue-800 font-medium inline-flex items-center transition-colors text-[12px] leading-[16px]">
+             <Link to="/galeri" className="text-[#053b93] hover:text-blue-800 font-medium inline-flex items-center transition-all duration-300 transform hover:translate-x-1 text-[12px] leading-[16px]">
                Selengkapnya <span className="ml-1 text-lg">&rsaquo;</span>
              </Link>
           </div>

@@ -147,7 +147,7 @@ export default function CalendarSection() {
                     {day && (
                       <div className={`
                         w-full h-full flex items-center justify-center rounded-xl text-sm md:text-base transition-all
-                        ${isSelected(day) ? 'bg-[#053b93] text-white font-bold shadow-md' : 'hover:bg-blue-50 text-gray-700'}
+                        ${isSelected(day) ? 'bg-[#053b93] text-white font-bold shadow-md' : 'hover:bg-blue-50 text-gray-700 hover:scale-110 transform transition-transform'}
                         ${isToday(day) && !isSelected(day) ? 'text-[#053b93] font-bold border-2 border-[#053b93]' : ''}
                       `}>
                         {day}
@@ -174,7 +174,7 @@ export default function CalendarSection() {
               <div className="space-y-4">
                 {selectedEvents.length > 0 ? (
                   selectedEvents.map(event => (
-                    <div key={event.id} className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100">
+                    <div key={event.id} className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
                        <div className="flex justify-between items-start mb-2">
                           <h4 className="font-bold text-[#053b93] text-base">{event.title}</h4>
                           <span className={`text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-full ${event.type === 'meeting' ? 'bg-blue-100 text-blue-800' : 'bg-red-100 text-red-800'}`}>

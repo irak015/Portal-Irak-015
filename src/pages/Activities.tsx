@@ -54,7 +54,7 @@ export default function Activities() {
 
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {activities.map((activity, idx) => (
-              <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                 <div 
                   className="h-64 w-full p-4 pb-0 cursor-pointer"
                   onClick={() => setSelectedImage(activity.image)}

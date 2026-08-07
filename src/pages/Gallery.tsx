@@ -23,7 +23,7 @@ const EventSlider = ({ event, onImageClick }: { event: any, onImageClick: (img: 
         {event.images.map((img: string, imgIdx: number) => (
           <div key={imgIdx} className="snap-start shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)]">
             <div 
-              className="bg-white rounded-3xl overflow-hidden shadow-sm p-4 hover:shadow-md transition-shadow h-full cursor-pointer"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm p-4 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent h-full cursor-pointer"
               onClick={() => onImageClick(img)}
             >
               <div className="w-full h-64 md:h-56">

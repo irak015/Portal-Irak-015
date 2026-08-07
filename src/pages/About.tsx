@@ -100,13 +100,34 @@ export default function About() {
                
                {/* Ketua Row */}
                <div className="flex justify-center mb-6">
-                 <MemberCard onClick={setSelectedImage} name="Bayu" role="Ketua" imgSrc="https://drive.google.com/thumbnail?id=14l-EO95AJNlgTa47uUp53EPDSanMoa_W&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0010526101197',
+                    nama: 'Bayu Hendri Priyono',
+                    tglLahir: '10 Nov 1997',
+                    alamat: 'J7/10',
+                    posisi: 'Ketua',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=14l-EO95AJNlgTa47uUp53EPDSanMoa_W&sz=s2000'
+                 })} name="Bayu" role="Ketua" imgSrc="https://drive.google.com/thumbnail?id=14l-EO95AJNlgTa47uUp53EPDSanMoa_W&sz=s2000" />
                </div>
 
                {/* Sekretariat Row */}
                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6">
-                 <MemberCard onClick={setSelectedImage} name="Davin" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1OSHDZA96tV4MArfihaJv3U61NG3QFsKL&sz=s2000" />
-                 <MemberCard onClick={setSelectedImage} name="Arman" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1Wb-QlwP4TvQgqS5kZ0rHKAxwLo61x_rs&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0020526210510',
+                    nama: 'Davin Rafif Alfiano',
+                    tglLahir: '21 Mei 2010',
+                    alamat: 'J5/2',
+                    posisi: 'Sekretariat',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1OSHDZA96tV4MArfihaJv3U61NG3QFsKL&sz=s2000'
+                 })} name="Davin" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1OSHDZA96tV4MArfihaJv3U61NG3QFsKL&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0030526301110',
+                    nama: 'Arman Zhaahiir',
+                    tglLahir: '30 Nov 2011',
+                    alamat: 'I.7/10',
+                    posisi: 'Sekretariat',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1Wb-QlwP4TvQgqS5kZ0rHKAxwLo61x_rs&sz=s2000'
+                 })} name="Arman" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1Wb-QlwP4TvQgqS5kZ0rHKAxwLo61x_rs&sz=s2000" />
                  <MemberCard onClick={() => setSelectedMember({
                     noAnggota: '0040626180910',
                     nama: 'Rifa Azkiya',
@@ -115,15 +136,50 @@ export default function About() {
                     posisi: 'Sekretariat',
                     imgSrc: 'https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000'
                  })} name="Rifa" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1A1dsSi23nZpPjMHMYIIQ3RQEiWBdkQY_&sz=s2000" />
-                 <MemberCard onClick={setSelectedImage} name="Brina" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1FeBvdFjkYV2i8n7JbxNh_K2oQng0eIBB&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0050626300311',
+                    nama: 'Sabrina Putri Nuraini',
+                    tglLahir: '30 Mar 2011',
+                    alamat: 'D1/9',
+                    posisi: 'Sekretariat',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1FeBvdFjkYV2i8n7JbxNh_K2oQng0eIBB&sz=s2000'
+                 })} name="Brina" role="Sekretariat" imgSrc="https://drive.google.com/thumbnail?id=1FeBvdFjkYV2i8n7JbxNh_K2oQng0eIBB&sz=s2000" />
                </div>
 
                {/* Bendahara & Sie Row */}
                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                 <MemberCard onClick={setSelectedImage} name="Echa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1sMwOJAacW6_NiluCO-Xs2_M6Midp-FDj&sz=s2000" />
-                 <MemberCard onClick={setSelectedImage} name="Ghesa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1bB_brdah_xFYhntlUWbyfOtT179O2I1H&sz=s2000" />
-                 <MemberCard onClick={setSelectedImage} name="Farih" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=100Q61DMxCADZdOKV8hSxXy6UTl4IWIN6&sz=s2000" />
-                 <MemberCard onClick={setSelectedImage} name="Zaidan" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=1y0aBoTmDaRD07YSdVU-KjQt04W6BCe1h&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0070526020310',
+                    nama: 'Shafa Hezsya Anbiyani',
+                    tglLahir: '2 Maret 2010',
+                    alamat: 'C2/10',
+                    posisi: 'Bendahara',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1sMwOJAacW6_NiluCO-Xs2_M6Midp-FDj&sz=s2000'
+                 })} name="Echa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1sMwOJAacW6_NiluCO-Xs2_M6Midp-FDj&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0060526230211',
+                    nama: 'Ghesani Tsuraya Dwi Widiasti',
+                    tglLahir: '23 Feb 2011',
+                    alamat: 'C1/52',
+                    posisi: 'Bendahara',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1bB_brdah_xFYhntlUWbyfOtT179O2I1H&sz=s2000'
+                 })} name="Ghesa" role="Bendahara" imgSrc="https://drive.google.com/thumbnail?id=1bB_brdah_xFYhntlUWbyfOtT179O2I1H&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0080526121210',
+                    nama: 'Farih Irwin Sugito',
+                    tglLahir: '12 Des 2010',
+                    alamat: 'J4/72A',
+                    posisi: 'Sie Olahraga',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=100Q61DMxCADZdOKV8hSxXy6UTl4IWIN6&sz=s2000'
+                 })} name="Farih" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=100Q61DMxCADZdOKV8hSxXy6UTl4IWIN6&sz=s2000" />
+                 <MemberCard onClick={() => setSelectedMember({
+                    noAnggota: '0090626270610',
+                    nama: 'Ahmad Zaidan Abiyy Dzaki',
+                    tglLahir: '27 Jun 2010',
+                    alamat: 'J4/68',
+                    posisi: 'Sie Olahraga',
+                    imgSrc: 'https://drive.google.com/thumbnail?id=1y0aBoTmDaRD07YSdVU-KjQt04W6BCe1h&sz=s2000'
+                 })} name="Zaidan" role="Sie Olahraga" imgSrc="https://drive.google.com/thumbnail?id=1y0aBoTmDaRD07YSdVU-KjQt04W6BCe1h&sz=s2000" />
                </div>
             </div>
          </div>
@@ -201,7 +257,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ name, role, imgSrc = "https://i
   return (
     <div className="flex flex-col items-center">
        <div 
-         className="relative w-full max-w-[140px] aspect-[3/4] bg-gradient-to-br from-blue-300 to-cyan-200 rounded-2xl overflow-hidden shadow-md p-1.5 cursor-pointer"
+         className="relative w-full max-w-[140px] aspect-[3/4] bg-gradient-to-br from-blue-300 to-cyan-200 rounded-2xl overflow-hidden shadow-md p-1.5 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg"
          onClick={() => onClick && onClick(imgSrc)}
        >
           {/* Inner image container */}
