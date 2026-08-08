@@ -42,14 +42,15 @@ export default function About() {
   ];
 
   return (
-    <div>
+    <div className="bg-[#e9f1fa]">
       {/* Header Section */}
-      <section className="py-[24px] bg-[#f3ebfa] text-center">
+      <section className="py-[24px] bg-[#e9f1fa] text-center">
         <div className="max-w-7xl mx-auto px-4">
            <div className="inline-block relative mb-8">
               <h1 className="font-display text-[32px] leading-[40px] text-[#053b93]">Tentang Kami</h1>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
            </div>
+           <p className="text-[#053b93]/70 mt-2 mb-8 max-w-2xl mx-auto text-sm">Mengenal lebih dekat siapa kami dan visi misi Ikatan Remaja Aktif 015.</p>
            
            <div className="mb-12">
              <p className="text-gray-800 text-lg font-medium mb-2">Moto :</p>
@@ -96,7 +97,7 @@ export default function About() {
             </div>
             <p className="text-red-500 font-medium mb-10">Periode 2026-2028</p>
 
-            <div className="bg-[#f3ebfa] rounded-[3rem] p-8 md:p-12 shadow-inner-sm">
+            <div className="bg-[#e9f1fa] rounded-[3rem] p-8 md:p-12 shadow-inner-sm">
                
                {/* Ketua Row */}
                <div className="flex justify-center mb-6">
@@ -193,7 +194,7 @@ export default function About() {
                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
             </div>
 
-            <div className="bg-[#f3ebfa] rounded-[3rem] p-8 md:p-12 shadow-inner-sm">
+            <div className="bg-[#e9f1fa] rounded-[3rem] p-8 md:p-12 shadow-inner-sm">
                <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-6">
                   {anggota.map((member, index) => (
                     <MemberCard onClick={setSelectedImage} key={index} name={member.name} role="" imgSrc={member.imgSrc} isAnggota={true} />

@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[1351px] max-w-full mx-auto px-4 sm:px-6 lg:px-8 bg-[#00ABE4]">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-3">
@@ -32,7 +32,7 @@ export default function Navbar() {
               <span className="text-[#053b93] font-bold text-xl leading-tight">
                 IRAK 015
               </span>
-              <span className="text-black text-xs font-semibold tracking-wider">
+              <span className="text-white text-xs font-semibold tracking-wider">
                 IKATAN REMAJA AKTIF RW. 015
               </span>
             </div>
@@ -44,10 +44,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-all transform hover:-translate-y-0.5 hover:text-[#053b93] ${
+                className={`text-sm font-medium transition-all transform hover:-translate-y-0.5 hover:text-white ${
                   location.pathname === link.path
-                    ? "text-[#053b93]"
-                    : "text-gray-800"
+                    ? "text-white"
+                    : "text-[#053b93]"
                 }`}
               >
                 {link.name}
@@ -82,7 +82,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   location.pathname === link.path
-                    ? "text-[#053b93] bg-blue-50"
+                    ? "text-white bg-[#053b93]"
                     : "text-gray-800 hover:text-[#053b93] hover:bg-gray-50"
                 }`}
               >

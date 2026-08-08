@@ -23,7 +23,7 @@ const EventSlider = ({ event, onImageClick }: { event: any, onImageClick: (img: 
         {event.images.map((img: string, imgIdx: number) => (
           <div key={imgIdx} className="snap-start shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)]">
             <div 
-              className="bg-white rounded-3xl overflow-hidden shadow-sm p-4 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent h-full cursor-pointer"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm p-2 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent h-full cursor-pointer"
               onClick={() => onImageClick(img)}
             >
               <div className="w-full h-64 md:h-56">
@@ -118,13 +118,14 @@ export default function Gallery() {
   ];
 
   return (
-    <div className="bg-[#f3ebfa] min-h-screen py-[24px]">
+    <div className="bg-[#e9f1fa] min-h-screen py-[24px]">
       <div className="max-w-7xl mx-auto px-4">
          <div className="text-center mb-16">
             <div className="inline-block relative">
-               <h1 className="font-display text-4xl md:text-5xl text-[#053b93]">Galeri</h1>
+               <h1 className="font-display text-[32px] leading-[40px] text-[#053b93]">Galeri</h1>
                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
             </div>
+            <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-sm">Momen-momen berharga dan kebersamaan kami yang diabadikan dalam bentuk foto.</p>
          </div>
 
          <div className="space-y-16">

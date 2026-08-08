@@ -31,7 +31,7 @@ const HomeGallerySlider = ({ onImageClick }: { onImageClick: (src: string) => vo
         {images.map((img, idx) => (
           <div key={idx} className="snap-start shrink-0 w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)]">
              <div 
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent p-3 pb-0 text-center h-full cursor-pointer"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent p-2 pb-0 text-center h-full cursor-pointer"
                 onClick={() => onImageClick(img.src)}
              >
                 <img src={img.src} alt={img.title} className="w-full h-48 object-cover rounded-xl mb-3" />
@@ -62,21 +62,21 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div>
+    <div className="bg-[#e9f1fa]">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#00b4db] to-[#0083b0] text-white relative overflow-hidden py-[24px]">
-        <div className="absolute inset-0 bg-[#053b93]/40"></div> {/* Darken overlay to match screenshot */}
+        <div className="absolute inset-0 bg-[#E9F1FA]"></div> {/* Darken overlay to match screenshot */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             <div className="lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
               <span className="inline-block bg-[#053b93] text-white text-center text-xs lg:text-sm px-4 py-1.5 rounded-md mb-4 shadow-sm w-[140px] lg:w-[160px]">
                 Selamat Datang
               </span>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-1 lg:mb-2 tracking-tight text-[#efed08] drop-shadow-sm">IRAK 015</h1>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-1 lg:mb-2 tracking-tight text-[#0d08ef] drop-shadow-sm">IRAK 015</h1>
               <h2 className="font-display font-bold text-[32px] leading-[40px] text-white drop-shadow-md mb-4 lg:mb-6 tracking-wide" style={{ WebkitTextStroke: '1px #053b93' }}>
                 Ikatan Remaja Aktif 015
               </h2>
-              <p className="text-gray-100 text-sm lg:text-base mb-6 lg:mb-8 max-w-xl font-light line-clamp-3 lg:line-clamp-none">
+              <p className="text-black text-sm lg:text-base mb-6 lg:mb-8 max-w-[800px] font-light">
                 Wadah pengembangan generasi muda RW. 015 Pesona Gading Cibitung, Desa Wanajaya Kecamatan Cibitung, Kabupaten Bekasi, yang tumbuh dan berkembang atas dasar kesadaran dan tanggung jawab sosial dari, oleh, dan untuk masyarakat.
               </p>
               <Link to="/tentang-kami" className="inline-flex items-center justify-center bg-[#053b93] hover:bg-blue-800 text-white font-medium rounded-md transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg text-[12px] h-[36px] w-[180px]">
@@ -115,13 +115,14 @@ export default function Home() {
       </section>
 
       {/* Kegiatan Section */}
-      <section className="py-[24px] bg-[#f3ebfa]">
+      <section className="py-[24px] bg-[#e9f1fa]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 inline-block w-full">
              <div className="inline-block relative">
                 <h2 className="font-display text-[32px] leading-[40px] text-[#053b93]">Kegiatan</h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
              </div>
+             <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-sm">Berbagai aktivitas dan program yang telah kami laksanakan bersama seluruh anggota IRAK 015.</p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -130,7 +131,7 @@ export default function Home() {
                 {/* Card 1 */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                   <div 
-                    className="h-48 w-full p-4 pb-0 cursor-pointer"
+                    className="h-48 w-full p-2 pb-0 cursor-pointer"
                     onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000")}
                   >
                     <img src="https://drive.google.com/thumbnail?id=1f1J7o6Tx8q61faXskwXuMwY0U4J5GKQr&sz=s2000" alt="Latihan Upacara" className="w-full h-full object-cover rounded-xl" />
@@ -144,7 +145,7 @@ export default function Home() {
                 {/* Card 2 */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                    <div 
-                     className="h-48 w-full p-4 pb-0 cursor-pointer"
+                     className="h-48 w-full p-2 pb-0 cursor-pointer"
                      onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000")}
                    >
                     <img src="https://drive.google.com/thumbnail?id=16DZ0H0-g2Qs2yr6QbSb96BdrlG25ww1Z&sz=s2000" alt="Sosialisasi kenakalan remaja" className="w-full h-full object-cover rounded-xl" />
@@ -158,7 +159,7 @@ export default function Home() {
                 {/* Card 3 */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                    <div 
-                     className="h-48 w-full p-4 pb-0 cursor-pointer"
+                     className="h-48 w-full p-2 pb-0 cursor-pointer"
                      onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000")}
                    >
                     <img src="https://drive.google.com/thumbnail?id=1xl0HKr0NhKHuuxp15FOB3W0aJ3spdUIz&sz=s2000" alt="Pembentukan pengurus" className="w-full h-full object-cover rounded-xl" />
@@ -172,7 +173,7 @@ export default function Home() {
                 {/* Card 4 */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:border-[#053b93]/20 border border-transparent">
                    <div 
-                     className="h-48 w-full p-4 pb-0 cursor-pointer"
+                     className="h-48 w-full p-2 pb-0 cursor-pointer"
                      onClick={() => setSelectedImage("https://drive.google.com/thumbnail?id=1UhNIJe8gB-wWeUB_5jBDjqsqGiSm0xvw&sz=s2000")}
                    >
                     <img src="https://drive.google.com/thumbnail?id=1UhNIJe8gB-wWeUB_5jBDjqsqGiSm0xvw&sz=s2000" alt="Rapat Sie Pemuda dan Olahraga" className="w-full h-full object-cover rounded-xl" />
@@ -218,13 +219,14 @@ export default function Home() {
       </section>
 
       {/* Galeri Section */}
-      <section className="py-[24px] bg-[#ffffff]">
+      <section className="py-[24px] bg-[#f5f5f5]">
         <div className="max-w-7xl mx-auto px-4">
            <div className="text-center mb-12 inline-block w-full">
              <div className="inline-block relative">
                 <h2 className="font-display text-[32px] leading-[40px] text-[#053b93]">Galeri</h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
              </div>
+             <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-sm">Momen-momen berharga dan kebersamaan kami yang diabadikan dalam bentuk foto.</p>
           </div>
 
           <HomeGallerySlider onImageClick={setSelectedImage} />
