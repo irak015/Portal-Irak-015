@@ -1,8 +1,133 @@
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Clock, MapPin, Tag } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, MapPin, Tag, X } from 'lucide-react';
 import React, { useRef, useState } from 'react';
 import { Lightbox } from '../components/Lightbox';
-import { mockEvents, MONTHS } from '../components/CalendarSection';
+import { mockEvents, MONTHS, DAYS, EventData } from '../components/CalendarSection';
+
+const MiniCalendar = () => {
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 7, 1));
+  const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
+
+  const currentMonth = currentDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+
+  const days = [];
+  for (let i = 0; i < firstDay; i++) {
+    days.push(null);
+  }
+  for (let i = 1; i <= daysInMonth; i++) {
+    days.push(i);
+  }
+
+  const prevMonth = () => setCurrentDate(new Date(currentYear, currentMonth - 1, 1));
+  const nextMonth = () => setCurrentDate(new Date(currentYear, currentMonth + 1, 1));
+
+  const formatDateKey = (day: number) => {
+    return `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  };
+
+  const hasEvents = (day: number) => {
+    const dateStr = formatDateKey(day);
+    return mockEvents.filter(e => e.date === dateStr);
+  };
+
+  const handleDateClick = (day: number) => {
+    const events = hasEvents(day);
+    if (events && events.length > 0) {
+      // Just show the first event for simplicity in the mini calendar
+      setSelectedEvent(events[0]);
+    }
+  };
+
+  return (
+    <>
+      <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 h-full flex flex-col">
+        <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <Tag size={18} className="text-red-500" />
+          Kegiatan Mendatang
+        </h3>
+        
+        <div className="flex justify-between items-center mb-4">
+          <button onClick={prevMonth} className="p-1 hover:bg-gray-100 rounded-full text-gray-700">
+            <ChevronLeft size={20} />
+          </button>
+          <h4 className="text-sm font-bold text-[#053b93]">
+            {MONTHS[currentMonth]} {currentYear}
+          </h4>
+          <button onClick={nextMonth} className="p-1 hover:bg-gray-100 rounded-full text-gray-700">
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-7 gap-1 mb-2">
+          {DAYS.map(day => (
+            <div key={day} className="text-center font-semibold text-gray-500 text-xs py-1">
+              {day.slice(0,1)}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-7 gap-1">
+          {days.map((day, idx) => {
+            const events = day ? hasEvents(day) : [];
+            const hasEvent = events.length > 0;
+            return (
+              <div 
+                key={idx} 
+                onClick={() => day && handleDateClick(day)}
+                className={`
+                  aspect-square p-0.5 relative flex items-center justify-center text-sm rounded-lg
+                  ${day ? 'cursor-pointer' : ''}
+                  ${hasEvent ? 'bg-blue-50 text-[#053b93] font-bold hover:bg-[#053b93] hover:text-white transition-colors group' : (day ? 'text-gray-700 hover:bg-gray-50' : '')}
+                `}
+              >
+                {day}
+                {hasEvent && (
+                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full bg-red-500 group-hover:bg-white transition-colors"></div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Popup Modal */}
+      {selectedEvent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl p-6 w-full max-w-sm relative shadow-xl border border-gray-100">
+            <button 
+              onClick={() => setSelectedEvent(null)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 bg-gray-50 hover:bg-gray-100 rounded-full p-1 transition-colors"
+            >
+              <X size={20} />
+            </button>
+            <h4 className="font-bold text-[#053b93] text-lg mb-2 pr-8">{selectedEvent.title}</h4>
+            <div className="flex gap-2 mb-4">
+              <span className={`text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-full ${selectedEvent.type === 'meeting' ? 'bg-blue-100 text-blue-800' : 'bg-red-100 text-red-800'}`}>
+                {selectedEvent.type === 'meeting' ? 'Rapat' : 'Kegiatan'}
+              </span>
+            </div>
+            {selectedEvent.description && (
+              <p className="text-sm text-gray-600 mb-4">{selectedEvent.description}</p>
+            )}
+            <div className="space-y-2 pt-4 border-t border-gray-100 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <Clock size={16} className="text-gray-400" />
+                <span>{selectedEvent.time}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin size={16} className="text-gray-400" />
+                <span>{selectedEvent.location}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 const HomeGallerySlider = ({ onImageClick }: { onImageClick: (src: string) => void }) => {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -122,7 +247,7 @@ export default function Home() {
                 <h2 className="font-display text-[32px] leading-[40px] text-[#053b93]">Kegiatan</h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
              </div>
-             <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-sm">Berbagai aktivitas dan program yang telah kami laksanakan bersama seluruh anggota IRAK 015.</p>
+             <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-[16px] leading-[24px]">Berbagai aktivitas dan program yang telah kami laksanakan bersama seluruh anggota IRAK 015.</p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -188,31 +313,7 @@ export default function Home() {
 
             {/* Upcoming Events Mini List */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 h-full">
-                 <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                   <Tag size={18} className="text-red-500" />
-                   Kegiatan Mendatang
-                 </h3>
-                 <div className="space-y-3">
-                   {mockEvents.slice(0, 3).map(event => (
-                     <div key={`upcoming-${event.id}`} className="flex items-start gap-4 p-3 hover:bg-blue-50/50 hover:shadow-sm rounded-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                        <div className="flex flex-col items-center justify-center bg-blue-50 text-[#053b93] rounded-lg min-w-[50px] p-2">
-                          <span className="text-xs font-bold uppercase">{MONTHS[parseInt(event.date.split('-')[1]) - 1].slice(0, 3)}</span>
-                          <span className="text-xl font-black">{event.date.split('-')[2]}</span>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-sm text-gray-900 line-clamp-1">{event.title}</h4>
-                          <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                            <Clock size={12} /> {event.time}
-                          </p>
-                          <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                            <MapPin size={12} /> {event.location}
-                          </p>
-                        </div>
-                     </div>
-                   ))}
-                 </div>
-              </div>
+              <MiniCalendar />
             </div>
           </div>
         </div>
@@ -226,7 +327,7 @@ export default function Home() {
                 <h2 className="font-display text-[32px] leading-[40px] text-[#053b93]">Galeri</h2>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
              </div>
-             <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-sm">Momen-momen berharga dan kebersamaan kami yang diabadikan dalam bentuk foto.</p>
+             <p className="text-[#053b93]/70 mt-6 max-w-2xl mx-auto text-[16px] leading-[24px]">Momen-momen berharga dan kebersamaan kami yang diabadikan dalam bentuk foto.</p>
           </div>
 
           <HomeGallerySlider onImageClick={setSelectedImage} />

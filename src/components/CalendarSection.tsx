@@ -12,10 +12,16 @@ export interface EventData {
 }
 
 export const mockEvents: EventData[] = [
+  { id: 10, date: '2026-08-03', title: 'Latihan Upacara', time: '20:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
+  { id: 11, date: '2026-08-05', title: 'Latihan Upacara', time: '20:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
   { id: 1, date: '2026-08-07', title: 'Latihan Upacara', time: '20:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
-  { id: 2, date: '2026-08-17', title: 'Upacara HUT RI & Lomba', time: '07:00 WIB', location: 'Lapangan RW 015', type: 'activity', description: 'Peringatan Hari Kemerdekaan RI ke-81 dan kegiatan lomba antar RT.' },
-  { id: 3, date: '2026-08-22', title: 'Kerja Bakti Lingkungan', time: '08:00 WIB', location: 'Lingkungan RW 015', type: 'activity', description: 'Membersihkan lingkungan bersama seluruh warga menyambut akhir bulan.' },
-  { id: 4, date: '2026-08-28', title: 'Rapat Persiapan Acara Puncak', time: '20:00 WIB', location: 'Sekretariat IRAK 015', type: 'meeting', description: 'Koordinasi akhir panitia untuk acara puncak RW 015.' },
+  { id: 2, date: '2026-08-09', title: 'Latihan Upacara', time: '07:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
+  { id: 3, date: '2026-08-10', title: 'Latihan Upacara', time: '20:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
+  { id: 4, date: '2026-08-12', title: 'Latihan Upacara', time: '20:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
+  { id: 5, date: '2026-08-14', title: 'Latihan Upacara', time: '20:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
+  { id: 6, date: '2026-08-16', title: 'Latihan Upacara', time: '07:00 WIB', location: 'Sarana Olahraga RW. 015', type: 'activity', description: 'Latihan persiapan upacara bendera.' },
+  { id: 7, date: '2026-08-17', title: 'Upacara HUT RI', time: '07:00 WIB', location: 'Lapangan RW 015', type: 'activity', description: 'Peringatan Hari Kemerdekaan RI ke-81.' },
+  { id: 12, date: '2026-08-23', title: 'Kerja Bakti', time: '08:00 WIB', location: 'Sekretariat IRAK 015', type: 'activity', description: 'Membersihkan lingkungan sekretariat.' },
 ];
 
 export const DAYS = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];

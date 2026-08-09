@@ -50,7 +50,7 @@ export default function About() {
               <h1 className="font-display text-[32px] leading-[40px] text-[#053b93]">Tentang Kami</h1>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-red-500 rounded-full"></div>
            </div>
-           <p className="text-[#053b93]/70 mt-2 mb-8 max-w-2xl mx-auto text-sm">Mengenal lebih dekat siapa kami dan visi misi Ikatan Remaja Aktif 015.</p>
+           <p className="text-[#053b93]/70 mt-2 mb-8 max-w-2xl mx-auto text-[16px] leading-[24px]">Mengenal lebih dekat siapa kami dan visi misi Ikatan Remaja Aktif 015.</p>
            
            <div className="mb-12">
              <p className="text-gray-800 text-lg font-medium mb-2">Moto :</p>
@@ -268,7 +268,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ name, role, imgSrc = "https://i
           {/* Name/Role container */}
           <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-[#50d1d9] flex flex-col items-center justify-center rounded-b-xl px-1">
              <span className="font-display text-white text-xl md:text-2xl leading-none drop-shadow-md">{name}</span>
-             {!isAnggota && <span className="text-[10px] text-white font-semibold uppercase tracking-wider mt-0.5">{role}</span>}
+             {!isAnggota && <span className="text-[10px] text-[#053b93] font-semibold uppercase tracking-wider mt-0.5">{role}</span>}
           </div>
        </div>
     </div>
